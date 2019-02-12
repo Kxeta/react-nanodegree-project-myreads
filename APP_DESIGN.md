@@ -2,7 +2,7 @@
 
 This is a sketch of the structure/components that I will implement here.
 
-##App
+## App
 ### Components
 * Router
 * Main Page
