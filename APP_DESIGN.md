@@ -3,72 +3,90 @@
 This is a sketch of the structure/components that I will implement here.
 
 ## App
+
 ### Components
-* Router
-* Main Page
-* Search Page
+
+- Router
+- Main Page
+- Search Page
+
 ### State
-* List of all the user's books in each shelf
-  * Currently Reading - "currentlyReading"
-  * Want to Read - "wantToRead"
-  * Read - "read"
+
+- List of all the user's books in each shelf
+  - Currently Reading - "currentlyReading"
+  - Want to Read - "wantToRead"
+  - Read - "read"
+
 ### Actions
-* Add Book to shelf
-* Remove Book from shelf
-* Toogle Book between shelves
+
+- Toogle Book between shelves
 
 ## Main Page
+
 ### Components
-* Title
-* List of Book Shelves
-* Add Button
+
+- Title
+- List of Book Shelves
+- Add Button
+
 ### State
-* None
+
+- None
+
 ### Props
-* List of User's Books (Array - Required)
-* Add Book to shelf Handler (Function - Required)
-* Remove Book from shelf Handler (Function - Required)
-* Toogle Book between shelves Handler (Function - Required)
+
+- List of User's Books (Array - Required)
+- Toogle Book between shelves Handler (Function - Required)
 
 ## Book Shelf
+
 ### Components
-* Title
-* Book Item
+
+- Title
+- Book Item
+
 ### State
-* None
+
+- None
+
 ### Props
-* Title (String)
-* List of Books (Array - Required)
-* Add Book to shelf Handler (Function - Required)
-* Remove Book from shelf Handler (Function - Required)
-* Toogle Book between shelves Handler (Function - Required)
+
+- Title (String)
+- List of Books (Array - Required)
+- Toogle Book between shelves Handler (Function - Required)
 
 ## Book Item
+
 ### Components
-* Book Cover (img)
-* Book Title (h* or p)
-* Book Author (p)
-* Dropdown (select)
+
+- Book Cover (img)
+- Book Title (h\* or p)
+- Book Author (p)
+- Dropdown (select)
+
 ### State
-* None
+
+- None
+
 ### Props
-* Book object (Object - Required)
-* Add Book to shelf Handler (Function - Required)
-* Remove Book from shelf Handler (Function - Required)
-* Toogle Book between shelves Handler (Function - Required)
+
+- Book object (Object - Required)
+- Toogle Book between shelves Handler (Function - Required)
 
 ## Search Page
+
 ### Components
-* Back Button
-* Form
-  * Input
-* Book Shelf with results
+
+- Back Button
+- Form
+  - Input
+- Book Shelf with results
+
 ### State
-* Search string (Input)
-* Result of all the books matching the search
-### Actions
-* Add Book to shelf
-* Remove Book from shelf
-* Toogle Book between shelves
 
+- Search string (Input)
+- Result of all the books matching the search
 
+### Props
+
+- Toogle Book between shelves Handler (Function - Required)
