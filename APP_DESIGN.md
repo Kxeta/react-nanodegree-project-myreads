@@ -90,3 +90,25 @@ This is a sketch of the structure/components that I will implement here.
 ### Props
 
 - Toogle Book between shelves Handler (Function - Required)
+
+## Book Details Page (Extra)
+
+### Components
+
+- Book Cover
+- Book Title
+- Book Author
+- Book Description
+- Book info Link
+- Book number of Pages
+- Book Classification
+- Book Rating
+- Book Language
+
+### State
+
+- None
+
+### Props
+
+- Book object (Object - Required)
