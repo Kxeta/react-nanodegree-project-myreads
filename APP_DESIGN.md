@@ -99,16 +99,12 @@ This is a sketch of the structure/components that I will implement here.
 - Book Title
 - Book Author
 - Book Description
-- Book info Link
-- Book number of Pages
-- Book Classification
 - Book Rating
-- Book Language
 
 ### State
 
-- None
+- Book
 
 ### Props
 
-- Book object (Object - Required)
+- None

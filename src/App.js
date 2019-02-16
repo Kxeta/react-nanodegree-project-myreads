@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
-import { MyReads, Search } from './containers';
+import { MyReads, Search, BookDetails } from './containers';
 
 class BooksApp extends React.Component {
   state = {
@@ -43,6 +43,7 @@ class BooksApp extends React.Component {
           path="/search"
           render={() => <Search updateShelf={this.changeShelfHandler} />}
         />
+        <Route path="/book/:bookId" render={() => <BookDetails />} />
       </div>
     );
   }

@@ -6,6 +6,12 @@ body,
 
 body {
   line-height: 1.5;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body,
@@ -46,7 +52,7 @@ button:hover {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #999;
 }
 
 .bookshelf-books {
@@ -152,6 +158,10 @@ button:active {
   font-size: 0.8em;
 }
 
+.book-authors-big {
+  font-size: 0.9em;
+}
+
 .book-title {
   margin-top: 10px;
 }
@@ -198,10 +208,48 @@ button:active {
 .book-cover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background: #eee;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .book-cover-title {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* loading */
+.loading {
+  height: 140px;
+  background-image: url('./images/loading.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Book Details */
+.book-details {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+}
+
+.book-info {
+  margin-left: 15px;
+  flex: 1;
+}
+
+.book-info-titles {
+  font-size: 1.1rem;
+  color: #444;
+  margin-right: 10px;
+}
+
+.book-description {
+  font-size: 0.9em;
+}
+
+.book-rating {
+  color: #999;
 }
