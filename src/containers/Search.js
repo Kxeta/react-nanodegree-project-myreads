@@ -7,6 +7,7 @@ import { PropTypes } from 'prop-types';
 class Search extends Component {
   state = {
     books: [],
+    booksOnShelves: [],
     search: '',
   };
 
@@ -28,15 +29,55 @@ class Search extends Component {
   };
 
   onChangeHandler = e => {
-    this.setState({
-      search: e.target.value,
-    });
+    const { value } = e.target;
+    this.setState(
+      {
+        search: value,
+      },
+      () =>
+        this.state.search.trim().length
+          ? BooksAPI.search(this.state.search).then(books =>
+              this.updateBooksState(books),
+            )
+          : this.updateBooksState([]),
+    );
   };
 
   onSearchSubmit = e => {
     e.preventDefault();
-    BooksAPI.search(this.state.search).then(books => this.setState({ books }));
+    BooksAPI.search(this.state.search).then(books =>
+      this.updateBooksState(books),
+    );
   };
+
+  updateBooksState = books => {
+    const { booksOnShelves } = this.state;
+    if (books instanceof Array) {
+      const resultBooks = books.map(book => {
+        const existingBook = booksOnShelves.filter(
+          bookOwn => bookOwn.id === book.id,
+        );
+        if (existingBook.length) {
+          book.shelf = existingBook[0].shelf;
+        }
+        return book;
+      });
+      this.setState({ books: resultBooks });
+    }
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (state.booksOnShelves !== props.books) {
+      return { booksOnShelves: props.books };
+    }
+    return false;
+  }
+
+  componentDidMount() {
+    this.setState({
+      booksOnShelves: this.props.books,
+    });
+  }
 
   render() {
     return (
@@ -87,6 +128,7 @@ class Search extends Component {
 Search.propTypes = {
   history: PropTypes.object,
   updateShelf: PropTypes.func,
+  books: PropTypes.array,
 };
 
 export default withRouter(Search);

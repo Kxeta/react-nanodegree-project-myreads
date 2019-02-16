@@ -12,35 +12,38 @@ const BookListItem = props => {
 
   return (
     <div className="book">
-      <Link to={`/book/${book.id}`}>
-        <div className="book-top">
+      <div className="book-top">
+        <Link to={`/book/${book.id}`}>
           <div
             className="book-cover"
             style={{
-              width: 140,
+              width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.smallThumbnail})`,
+              backgroundImage: `url(${book.imageLinks &&
+                book.imageLinks.smallThumbnail})`,
             }}
           />
-          <div className="book-shelf-changer">
-            <select value={book.shelf || 'move'} onChange={onChangeShelf}>
-              <option value="move" disabled>
-                Move to...
-              </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
-          </div>
+        </Link>
+        <div className="book-shelf-changer">
+          <select value={book.shelf || 'none'} onChange={onChangeShelf}>
+            <option value="move" disabled>
+              Move to...
+            </option>
+            <option value="currentlyReading">Currently Reading</option>
+            <option value="wantToRead">Want to Read</option>
+            <option value="read">Read</option>
+            <option value="none">None</option>
+          </select>
         </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">
-          {book.authors.map((author, key) => (
-            <p key={key}>{author}</p>
-          ))}
-        </div>
-      </Link>
+      </div>
+      <div className="book-title">{book.title}</div>
+      <div className="book-authors">
+        {book.authors && book.authors instanceof Array ? (
+          book.authors.map((author, key) => <p key={key}>{author}</p>)
+        ) : (
+          <p>{book.authors}</p>
+        )}
+      </div>
     </div>
   );
 };

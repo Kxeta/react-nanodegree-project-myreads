@@ -90,6 +90,7 @@ This is a sketch of the structure/components that I will implement here.
 ### Props
 
 - Toogle Book between shelves Handler (Function - Required)
+- Books that are in the shelves (Array - Required)
 
 ## Book Details Page (Extra)
 
