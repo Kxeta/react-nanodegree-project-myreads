@@ -1,6 +1,12 @@
 # MyReads Project
 
-This is the result for the final assessment project for Udacity's React Fundamentals course.
+This is the result for the final assessment project for Udacity's React Fundamentals course First Module.
+
+The goal of this project is to create a book tracking app, so you can manage the books that you have read, wanting to read or is currently reading. There's a Search page that you can search for the books that you want to track (Be aware for the whitelisted short collection of available search terms for you to use this app - [SEARCH_TERMS.md)](./SEARCH_TERMS.md).
+
+The challenge here is to create this app using the best practice learned so far in the course, using only really needed libraries and knowing when you should use a React Class Component or a Functional Component.
+
+You can check the final result [here](http://kxeta-my-reads.surge.sh/)
 
 ## TL;DR
 

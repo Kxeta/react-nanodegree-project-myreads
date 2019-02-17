@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { DebounceInput } from 'react-debounce-input';
 import * as BooksAPI from '../BooksAPI';
 import { BookListItem } from '../components';
 import { PropTypes } from 'prop-types';
@@ -7,7 +8,6 @@ import { PropTypes } from 'prop-types';
 class Search extends Component {
   state = {
     books: [],
-    booksOnShelves: [],
     search: '',
   };
 
@@ -50,34 +50,21 @@ class Search extends Component {
     );
   };
 
-  updateBooksState = books => {
-    const { booksOnShelves } = this.state;
-    if (books instanceof Array) {
-      const resultBooks = books.map(book => {
-        const existingBook = booksOnShelves.filter(
-          bookOwn => bookOwn.id === book.id,
-        );
+  updateBooksState = booksResult => {
+    const { books } = this.props;
+    if (booksResult instanceof Array) {
+      booksResult = booksResult.map(book => {
+        const existingBook = books.filter(bookOwn => bookOwn.id === book.id);
         if (existingBook.length) {
           book.shelf = existingBook[0].shelf;
         }
         return book;
       });
-      this.setState({ books: resultBooks });
+      this.setState({ books: booksResult });
+    } else {
+      this.setState({ books: [] });
     }
   };
-
-  static getDerivedStateFromProps(props, state) {
-    if (state.booksOnShelves !== props.books) {
-      return { booksOnShelves: props.books };
-    }
-    return false;
-  }
-
-  componentDidMount() {
-    this.setState({
-      booksOnShelves: this.props.books,
-    });
-  }
 
   render() {
     return (
@@ -99,8 +86,9 @@ class Search extends Component {
               you don't find a specific author or title. Every search is limited by search terms.
             */}
             <form onSubmit={this.onSearchSubmit}>
-              <input
-                type="text"
+              <DebounceInput
+                minLength={1}
+                debounceTimeout={300}
                 placeholder="Search by title or author"
                 onChange={this.onChangeHandler}
                 value={this.state.search}

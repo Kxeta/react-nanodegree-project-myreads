@@ -253,3 +253,15 @@ button:active {
 .book-rating {
   color: #999;
 }
+
+.page-not-found {
+  text-align: center;
+}
+
+.page-not-found a {
+  text-decoration: underline;
+  color: #2e7c31;
+}
+.page-not-found a:hover {
+  opacity: 0.8;
+}

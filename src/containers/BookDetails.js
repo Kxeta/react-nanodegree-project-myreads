@@ -41,18 +41,18 @@ class BookDetails extends Component {
           />
           <div className="book-info">
             <div className="book-authors book-authors-big">
-              <spam className="book-info-titles">Authors:</spam>
+              <span className="book-info-titles">Authors:</span>
               {book.authors.map(
                 (author, key) => `${key > 0 ? ', ' : ''}${author}`,
               )}
             </div>
             <div className="book-description">
-              <spam className="book-info-titles">Description:</spam>
+              <span className="book-info-titles">Description:</span>
               {book.description}
             </div>
             {book.averageRating && (
               <div className="book-rating">
-                <spam className="book-info-titles">Average Rating:</spam>
+                <span className="book-info-titles">Average Rating:</span>
                 {book.averageRating} / 5
               </div>
             )}

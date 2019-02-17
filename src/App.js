@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
-import { MyReads, Search, BookDetails } from './containers';
+import { MyReads, Search, BookDetails, PageNotFound } from './containers';
 
 class BooksApp extends React.Component {
   state = {
@@ -46,6 +46,7 @@ class BooksApp extends React.Component {
             )}
           />
           <Route path="/book/:bookId" render={() => <BookDetails />} />
+          <Route component={PageNotFound} />
         </Switch>
       </div>
     );
